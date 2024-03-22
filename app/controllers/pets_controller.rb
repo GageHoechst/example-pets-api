@@ -12,4 +12,9 @@ class PetsController < ApplicationController
     )
     render :show
   end
+
+  def show
+    @pet = Pet.find_by(id: params[:id])
+    render :show
+  end
 end
