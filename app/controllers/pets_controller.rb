@@ -17,4 +17,14 @@ class PetsController < ApplicationController
     @pet = Pet.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @pet = Pet.find_by(id: params[:id])
+    @pet.update(
+      name: params[:name] || @pet.name,
+      image: params[:image] || @pet.image,
+      price: params[:price] || @pet.price,
+    )
+    render :show
+  end
 end
